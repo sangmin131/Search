@@ -6,7 +6,7 @@ export default class Youtube {
   constructor() {
     this.httpClient = axios.create({
       baseURL: 'https://www.googleapis.com/youtube/v3',
-      params: { key: 'AIzaSyDzFzHL9cKAf_TxJ1OXyYiZmQ_5PPiabIQ' },
+      params: { key: process.env.REACT_APP_YOUTUBE_API_KEY },
     });
   }
   async search(keyword) {
