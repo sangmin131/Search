@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useParams } from "react-router-dom";
 import FackYoutube from '../api/fakeYoutube';
-import { search } from '../api/youtube';
+import Youtube, { search } from '../api/youtube';
 import VideoCard from '../VideoCard';
 
 
@@ -10,7 +10,7 @@ export default function Videos() {
   const {keyword} = useParams();
   const {isLoadung, error, data: videos} = useQuery(
     ['videos', keyword], () => {
-      const youtube = new FackYoutube();
+      const youtube = new Youtube();
       return youtube.search(keyword);
     }
   );
